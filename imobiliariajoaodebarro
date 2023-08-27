@@ -1,0 +1,40 @@
+create database joaodebarro;
+use joaodebarro;
+
+CREATE TABLE `imobiliaria`.`condominio` ( 
+`codigo` INT(3) UNSIGNED NOT NULL,
+`nome` VARCHAR(100) NOT NULL,
+`endereço` VARCHAR(100) NOT NULL,
+PRIMARY KEY (codigo),
+UNIQUE INDEX `uk_nome` (codigo ASC),
+ UNIQUE INDEX `uk_end` (codigo ASC, nome ASC, endereço ASC));
+
+
+CREATE TABLE `imobiliaria`. `apartamento` (
+ numero INT (4) UNSIGNED NOT NULL, 
+ `tipo` VARCHAR(45) NOT NULL, 
+ UNIQUE INDEX `uk_num` (numero ASC, tipo ASC), 
+ UNIQUE INDEX `uk_tipo` (numero ASC, tipo ASC)) 
+ ENGINE InnoDB;
+
+
+
+CREATE TABLE `imobiliaria`.`proprietario` ( 
+
+`rg` INT(15) UNSIGNED NOT NULL, 
+`nome` VARCHAR(45) NOT NULL,
+`telefone` INT(15) UNSIGNED NOT NULL, 
+`e-mail` VARCHAR(45) NOT NULL, 
+UNIQUE INDEX `uk_email` (`e-mail` ASC),
+UNIQUE INDEX `uk_rg` (`rg` ASC),
+UNIQUE INDEX `uk_tel` (`telefone` ASC),
+UNIQUE INDEX uk_nome (`rg` ASC, `nome` ASC, `telefone` ASC, `e-mail` ASC));
+
+CREATE TABLE imobiliaria. garagem ( 
+`numero` INT(4) UNSIGNED NOT NULL,
+`tipo` VARCHAR(45) NOT NULL, 
+UNIQUE INDEX `uk_num` (numero ASC, tipo ASC),
+UNIQUE INDEX `uk_tipo` (numero ASC, tipo ASC))
+
+
+ENGINE = InnoDB
